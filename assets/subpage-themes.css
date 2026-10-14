@@ -1,0 +1,361 @@
+/* Individual art direction for each interior page. */
+html.static-page,
+body.static-page {background:#f4f0e7}
+
+/* Light navigation used by the editorial interior pages. */
+body[data-page="about"] .site-header,
+body[data-page="artists"] .site-header,
+body[data-page="reviews"] .site-header {
+  background:rgba(249,245,237,.94);
+  border-bottom-color:rgba(31,54,37,.12);
+  box-shadow:0 8px 30px rgba(31,46,35,.045);
+}
+body[data-page="about"] .site-header .brand,
+body[data-page="artists"] .site-header .brand,
+body[data-page="reviews"] .site-header .brand,
+body[data-page="about"] .site-header .nav-list a,
+body[data-page="artists"] .site-header .nav-list a,
+body[data-page="reviews"] .site-header .nav-list a {color:#183124}
+body[data-page="about"] .site-header .circle-mark,
+body[data-page="artists"] .site-header .circle-mark,
+body[data-page="reviews"] .site-header .circle-mark {color:#2f6843;border-color:#86a47d}
+body[data-page="about"] .site-header .langs,
+body[data-page="artists"] .site-header .langs,
+body[data-page="reviews"] .site-header .langs {background:#e6e8dc;border-color:#d4d8cb}
+body[data-page="about"] .site-header .langs button,
+body[data-page="artists"] .site-header .langs button,
+body[data-page="reviews"] .site-header .langs button {color:#506052}
+body[data-page="about"] .site-header .langs button.active,
+body[data-page="artists"] .site-header .langs button.active,
+body[data-page="reviews"] .site-header .langs button.active {background:#183124;color:#fff}
+
+/* ABOUT — quiet editorial layout with asymmetric storytelling. */
+body[data-page="about"] {background:#f3ecdf}
+body[data-page="about"] .page-banner {
+  min-height:620px;
+  padding:108px 0 80px;
+  display:flex;
+  align-items:flex-end;
+  background:
+    radial-gradient(circle at 87% 16%,rgba(132,174,112,.34) 0 10%,transparent 10.2%),
+    radial-gradient(circle at 87% 16%,transparent 0 17%,rgba(57,102,70,.14) 17.2% 17.7%,transparent 18%),
+    linear-gradient(118deg,#eee3d2 0 58%,#dce7d3 58% 100%);
+  color:#173123;
+}
+body[data-page="about"] .page-banner::before {
+  content:'01  /  THE STUDIO';
+  position:absolute;
+  top:58px;
+  left:max(42px,calc((100vw - 1240px)/2));
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.25em;
+  color:#50745a;
+}
+body[data-page="about"] .page-banner::after {
+  content:'A';
+  right:4%;
+  top:-70px;
+  color:rgba(39,83,53,.07);
+  font:900 620px/.82 Georgia,serif;
+}
+body[data-page="about"] .page-banner .wrap {
+  display:grid;
+  grid-template-columns:.72fr 1.28fr;
+  gap:28px 70px;
+  align-items:end;
+}
+body[data-page="about"] .page-banner .eyebrow {grid-column:1;align-self:start}
+body[data-page="about"] .page-banner .display {
+  grid-column:1/-1;
+  max-width:1080px;
+  margin:8px 0 0;
+  font-size:clamp(80px,11vw,150px);
+  letter-spacing:-.1em;
+  color:#173123;
+}
+body[data-page="about"] .page-banner .intro {
+  grid-column:2;
+  margin-left:auto;
+  max-width:540px;
+  color:#485b4c;
+}
+body[data-page="about"] main>.section {background:#f8f3e9}
+body[data-page="about"] main>.section.section-soft {background:#dce7d3}
+body[data-page="about"] .split {grid-template-columns:1.22fr .78fr;align-items:start}
+body[data-page="about"] .split>div:first-child {padding:45px 0 20px}
+body[data-page="about"] .story-feature {
+  min-height:540px;
+  border:0;
+  border-radius:240px 240px 24px 24px;
+  background:linear-gradient(165deg,#9fbd90,#3e714d);
+  box-shadow:22px 24px 0 #d8c9b4;
+}
+body[data-page="about"] .values-grid {gap:0;border-top:1px solid #9daf95}
+body[data-page="about"] .mini-value {
+  border:0;
+  border-right:1px solid #9daf95;
+  border-radius:0;
+  padding:38px 34px;
+  background:transparent;
+}
+body[data-page="about"] .mini-value:last-child {border-right:0}
+body[data-page="about"] .truth-panel {background:#f0e7da;border-style:solid;border-color:#cdbda8}
+
+/* SPECIALTIES — bold numbered collection. */
+body[data-page="specialties"] {background:#dbe7d0}
+body[data-page="specialties"] .page-banner {
+  min-height:560px;
+  padding:105px 0 82px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(11,27,18,.96),rgba(18,54,34,.91)),
+    radial-gradient(circle at 80% 35%,#6a9b53,transparent 42%);
+  color:#f7f2e8;
+}
+body[data-page="specialties"] .page-banner::before {
+  content:'FOUR WAYS TO CREATE';
+  position:absolute;
+  left:max(42px,calc((100vw - 1240px)/2));
+  bottom:44px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.28em;
+  color:#a8d878;
+}
+body[data-page="specialties"] .page-banner::after {
+  content:'04';
+  right:2%;
+  top:-65px;
+  color:transparent;
+  -webkit-text-stroke:2px rgba(169,220,116,.2);
+  font:900 440px/.9 Arial,sans-serif;
+}
+body[data-page="specialties"] .page-banner .wrap {display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end}
+body[data-page="specialties"] .page-banner .eyebrow {grid-column:1;color:#b7e886}
+body[data-page="specialties"] .page-banner .display {grid-column:1;font-size:clamp(72px,9vw,126px);margin-bottom:0}
+body[data-page="specialties"] .page-banner .intro {grid-column:2;grid-row:1/3;color:#c8d8c7;margin-bottom:13px}
+body[data-page="specialties"] main>.section {background:#dbe7d0}
+body[data-page="specialties"] .specialty-grid {gap:22px}
+body[data-page="specialties"] .specialty-card {border:0;box-shadow:0 18px 45px rgba(20,42,25,.08)}
+body[data-page="specialties"] .specialty-card:nth-child(1) {background:#fbf5e9;border-radius:120px 24px 24px 24px}
+body[data-page="specialties"] .specialty-card:nth-child(2) {background:#a9d96f;border-radius:24px 120px 24px 24px}
+body[data-page="specialties"] .specialty-card:nth-child(3) {background:#163525;color:#f7f4e9;border-radius:24px 24px 24px 120px}
+body[data-page="specialties"] .specialty-card:nth-child(4) {background:#ead3c3;border-radius:24px 24px 120px 24px}
+body[data-page="specialties"] .specialty-card:nth-child(3) p,
+body[data-page="specialties"] .specialty-card:nth-child(3) .specialty-number {color:#c7d8c3}
+body[data-page="specialties"] .specialty-card:nth-child(3) .specialty-icon {color:#a8d878}
+body[data-page="specialties"] .specialty-card:nth-child(3) .button {border-color:#d6e7d0;color:#fff}
+body[data-page="specialties"] .specialty-inner {min-height:390px;padding:45px}
+body[data-page="specialties"] .specialty-icon {font-size:88px}
+
+/* ARTISTS — warm magazine-style profile composition. */
+body[data-page="artists"] {background:#f2e7dc}
+body[data-page="artists"] .page-banner {
+  min-height:590px;
+  padding:105px 0 88px;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 13% 22%,rgba(132,178,108,.38) 0 12%,transparent 12.2%),
+    linear-gradient(132deg,#ead6c5 0 66%,#bfd4af 66% 100%);
+  color:#182d21;
+}
+body[data-page="artists"] .page-banner::before {
+  content:'THE PEOPLE BEHIND THE WORK';
+  position:absolute;
+  right:7%;
+  bottom:55px;
+  writing-mode:vertical-rl;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.24em;
+  color:#496b50;
+}
+body[data-page="artists"] .page-banner::after {
+  content:'MEET';
+  left:-25px;
+  right:auto;
+  top:42px;
+  color:rgba(61,99,65,.075);
+  font:900 245px/.85 Arial,sans-serif;
+  letter-spacing:-.09em;
+}
+body[data-page="artists"] .page-banner .wrap {display:grid;grid-template-columns:.92fr 1.08fr;gap:75px;align-items:end}
+body[data-page="artists"] .page-banner .eyebrow {grid-column:1}
+body[data-page="artists"] .page-banner .display {grid-column:1/-1;font-size:clamp(76px,10vw,136px);margin:5px 0;color:#182d21}
+body[data-page="artists"] .page-banner .intro {grid-column:2;justify-self:end;color:#526154}
+body[data-page="artists"] main>.section {background:#f7f1e9}
+body[data-page="artists"] .artist-grid {grid-template-columns:repeat(12,1fr);gap:25px;align-items:start}
+body[data-page="artists"] .artist-card {border:0;border-radius:28px;padding:16px;box-shadow:0 18px 50px rgba(74,55,40,.08)}
+body[data-page="artists"] .artist-card:nth-child(3n+1) {grid-column:span 7;background:#e0ead8}
+body[data-page="artists"] .artist-card:nth-child(3n+2) {grid-column:span 5;margin-top:88px;background:#f0d8c5}
+body[data-page="artists"] .artist-card:nth-child(3n) {grid-column:3/span 8;background:#fffdf8}
+body[data-page="artists"] .artist-card:nth-child(3n+1) .artist-image {height:410px}
+body[data-page="artists"] .artist-card:nth-child(3n+2) .artist-image {height:330px}
+body[data-page="artists"] .artist-card:nth-child(3n) .artist-image {height:370px}
+body[data-page="artists"] .artist-image {border-radius:20px}
+body[data-page="artists"] .artist-copy {padding:28px 18px 17px}
+body[data-page="artists"] .artist-copy h3 {font-size:clamp(30px,4vw,52px)}
+body[data-page="artists"] .truth-panel {grid-column:1/-1;background:#e7dccf;border-color:#bda995}
+
+/* PORTFOLIO — full cinematic video hero and dark gallery room. */
+body[data-page="portfolio"] .page-banner {
+  min-height:calc(100svh - 86px);
+  padding:100px 0 78px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(180deg,rgba(5,17,10,.22),rgba(5,17,10,.64));
+}
+body[data-page="portfolio"] .page-banner::after {
+  content:'PORTFOLIO';
+  left:50%;
+  right:auto;
+  top:51%;
+  transform:translate(-50%,-50%);
+  color:transparent;
+  -webkit-text-stroke:1px rgba(199,230,174,.17);
+  font:900 clamp(110px,18vw,280px)/.8 Arial,sans-serif;
+  letter-spacing:-.09em;
+  white-space:nowrap;
+}
+body[data-page="portfolio"] .page-banner .wrap {display:flex;flex-direction:column;align-items:center}
+body[data-page="portfolio"] .page-banner .eyebrow {color:#c4ee99}
+body[data-page="portfolio"] .page-banner .display {font-size:clamp(82px,12vw,170px);color:#fff;margin:24px auto}
+body[data-page="portfolio"] .page-banner .intro {color:#e0ebdc;margin-inline:auto}
+body[data-page="portfolio"] main>.section {background:#101713;color:#f5f7f1}
+body[data-page="portfolio"] .gallery-bar p {color:#b8c7b5}
+body[data-page="portfolio"] .gallery-counter {color:#a8d878}
+body[data-page="portfolio"] .portfolio-grid {gap:11px}
+body[data-page="portfolio"] .portfolio-grid .photo-shell {border-radius:5px}
+body[data-page="portfolio"] .load-container .button {border-color:#dbe7d7;color:#fff}
+body[data-page="portfolio"] .cta-band {background:#a8d878;color:#122317}
+body[data-page="portfolio"] .cta-band .eyebrow,
+body[data-page="portfolio"] .cta-band .intro {color:#28462e}
+body[data-page="portfolio"] .cta-band .button-accent {background:#14281a;border-color:#14281a}
+
+/* REVIEWS — testimonial journal with a giant quotation mark. */
+body[data-page="reviews"] {background:#efefcb}
+body[data-page="reviews"] .page-banner {
+  min-height:570px;
+  padding:104px 0 80px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(124deg,#e4e5b5 0 62%,#cdddbf 62% 100%);
+  color:#182d21;
+}
+body[data-page="reviews"] .page-banner::before {
+  content:'“';
+  position:absolute;
+  right:8%;
+  top:-82px;
+  color:rgba(42,83,51,.16);
+  font:400 530px/1 Georgia,serif;
+}
+body[data-page="reviews"] .page-banner::after {content:'CLIENT NOTES';font:900 12px/1 Arial,sans-serif;letter-spacing:.28em;right:8%;top:auto;bottom:58px;color:#52705a}
+body[data-page="reviews"] .page-banner .wrap {display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:end}
+body[data-page="reviews"] .page-banner .eyebrow {grid-column:1}
+body[data-page="reviews"] .page-banner .display {grid-column:1;font-size:clamp(72px,9vw,126px);margin-bottom:0;color:#182d21}
+body[data-page="reviews"] .page-banner .intro {grid-column:2;grid-row:1/3;color:#506052;margin-bottom:13px}
+body[data-page="reviews"] main>.section {background:#efefcb}
+body[data-page="reviews"] main>.section.section-soft {background:#fbf7ee}
+body[data-page="reviews"] .review-card {border:0;border-radius:8px;box-shadow:0 16px 38px rgba(67,70,40,.09)}
+body[data-page="reviews"] .review-card:nth-child(3n+1) {background:#fffaf0;transform:rotate(-1deg)}
+body[data-page="reviews"] .review-card:nth-child(3n+2) {background:#dbe8d0;transform:rotate(1deg)}
+body[data-page="reviews"] .review-card:nth-child(3n) {background:#ead9ca;transform:rotate(-.6deg)}
+body[data-page="reviews"] .review-card blockquote {font-family:Georgia,serif;font-size:clamp(18px,2vw,25px)}
+body[data-page="reviews"] .slider-controls button {background:#183124;color:#fff;border-color:#183124}
+body[data-page="reviews"] .faq-item {border-bottom-color:#cabfae}
+
+/* CONTACT — immersive dark information desk. */
+body[data-page="contact"] {background:#10261a}
+body[data-page="contact"] .page-banner {
+  min-height:530px;
+  padding:100px 0 72px;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 86% 48%,rgba(171,220,115,.94) 0 15%,transparent 15.2%),
+    radial-gradient(circle at 86% 48%,transparent 0 23%,rgba(171,220,115,.17) 23.2% 23.7%,transparent 24%),
+    #10261a;
+  color:#f5f4e9;
+}
+body[data-page="contact"] .page-banner::before {
+  content:'TENERIFE  /  28.0916° N';
+  position:absolute;
+  right:6%;
+  bottom:48px;
+  color:#a9d878;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.23em;
+}
+body[data-page="contact"] .page-banner::after {content:'↗';font:300 190px/1 Arial,sans-serif;right:8.7%;top:30%;color:#173222}
+body[data-page="contact"] .page-banner .display {font-size:clamp(70px,8.5vw,118px);max-width:880px;color:#fff}
+body[data-page="contact"] .page-banner .eyebrow {color:#b6e787}
+body[data-page="contact"] .page-banner .intro {color:#c5d3c4}
+body[data-page="contact"] main>.section {background:#10261a;color:#f5f4e9}
+body[data-page="contact"] main>.section.section-soft {background:#eee4d7;color:#17291e}
+body[data-page="contact"] .contact-layout {grid-template-columns:.86fr 1.14fr;align-items:start}
+body[data-page="contact"] .contact-layout .intro {color:#b9c9b8}
+body[data-page="contact"] .contact-layout .button-primary {background:#a8d878;border-color:#a8d878;color:#122317}
+body[data-page="contact"] .contact-layout .button:not(.button-primary) {border-color:#dce8d7;color:#fff}
+body[data-page="contact"] .map-shell {border:0;background:repeating-linear-gradient(45deg,#1c3827 0 18px,#22452f 18px 36px)}
+body[data-page="contact"] .map-shell>span {color:#173523;background:#fffefa}
+body[data-page="contact"] .map-shell a {color:#2f6b3c}
+body[data-page="contact"] .map-shell a:hover,
+body[data-page="contact"] .map-shell a:focus-visible {color:#173523}
+body[data-page="contact"] .contact-card {background:#a8d878;color:#122317;border:0;border-radius:46px 12px 46px 12px;padding:48px}
+body[data-page="contact"] .contact-row {border-bottom-color:rgba(18,35,23,.22)}
+body[data-page="contact"] .contact-row .eyebrow {color:#23452d}
+body[data-page="contact"] .contact-row .eyebrow::before {background:#173523}
+body[data-page="contact"] .section-soft .instagram-spot {background:#173523;color:#fff}
+body[data-page="contact"] .section-soft .instagram-spot .eyebrow {color:#b7e886}
+body[data-page="contact"] .cta-band {background:#ead5c4;color:#14251a}
+body[data-page="contact"] .cta-band .eyebrow,
+body[data-page="contact"] .cta-band .intro {color:#46584b}
+
+@media (max-width: 900px) {
+  body[data-page] .page-banner .wrap {display:block}
+  body[data-page] .page-banner .intro {margin-top:24px}
+  body[data-page="about"] .page-banner,
+  body[data-page="artists"] .page-banner,
+  body[data-page="reviews"] .page-banner {min-height:520px}
+  body[data-page="specialties"] .page-banner,
+  body[data-page="contact"] .page-banner {min-height:500px}
+  body[data-page="artists"] .artist-grid {grid-template-columns:1fr 1fr}
+  body[data-page="artists"] .artist-card:nth-child(n) {grid-column:auto;margin-top:0}
+  body[data-page="artists"] .artist-card:nth-child(3n) {grid-column:1/-1}
+  body[data-page="contact"] .contact-layout {grid-template-columns:1fr}
+}
+
+@media (max-width: 620px) {
+  body[data-page] .page-banner {padding:78px 0 58px;min-height:430px}
+  body[data-page] .page-banner .display {font-size:clamp(58px,19vw,88px)}
+  body[data-page="about"] .page-banner::before,
+  body[data-page="specialties"] .page-banner::before,
+  body[data-page="artists"] .page-banner::before,
+  body[data-page="reviews"] .page-banner::after,
+  body[data-page="contact"] .page-banner::before {display:none}
+  body[data-page="about"] .page-banner::after {font-size:390px;right:-20%}
+  body[data-page="specialties"] .page-banner::after {font-size:280px;right:-8%}
+  body[data-page="artists"] .page-banner::after {font-size:145px;top:30px}
+  body[data-page="reviews"] .page-banner::before {font-size:360px;right:-8%}
+  body[data-page="contact"] .page-banner::after {font-size:110px;right:8%;top:13%}
+  body[data-page="about"] .split {grid-template-columns:1fr}
+  body[data-page="about"] .story-feature {min-height:390px;box-shadow:12px 14px 0 #d8c9b4}
+  body[data-page="about"] .values-grid {grid-template-columns:1fr}
+  body[data-page="about"] .mini-value {border-right:0;border-bottom:1px solid #9daf95}
+  body[data-page="specialties"] .specialty-grid {grid-template-columns:1fr}
+  body[data-page="specialties"] .specialty-card:nth-child(n) {border-radius:56px 18px 18px 18px}
+  body[data-page="specialties"] .specialty-inner {min-height:340px;padding:34px}
+  body[data-page="artists"] .artist-grid {grid-template-columns:1fr}
+  body[data-page="artists"] .artist-card:nth-child(n) {grid-column:auto}
+  body[data-page="artists"] .artist-card:nth-child(n) .artist-image {height:320px}
+  body[data-page="portfolio"] .page-banner {min-height:76svh}
+  body[data-page="portfolio"] .page-banner::after {font-size:105px}
+  body[data-page="reviews"] .review-card:nth-child(n) {transform:none}
+  body[data-page="contact"] .contact-card {padding:31px;border-radius:32px 10px 32px 10px}
+}

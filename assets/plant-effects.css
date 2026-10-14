@@ -1,0 +1,118 @@
+/* Decorative Monstera leaves along the viewport edges. */
+.botanical-edges {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint;
+}
+
+.botanical-leaf {
+  --leaf-opacity: .22;
+  --leaf-size: 220px;
+  --entry-x: -54px;
+  --tilt: 0deg;
+  --sway-duration: 8s;
+  position: absolute;
+  width: var(--leaf-size);
+  opacity: 0;
+  transform: translate3d(var(--entry-x), 18px, 0) rotate(var(--tilt)) scale(.86);
+  transform-origin: 50% 88%;
+  transition: opacity 1.15s cubic-bezier(.22,1,.36,1),
+              transform 1.45s cubic-bezier(.22,1,.36,1);
+  will-change: opacity, transform;
+}
+
+.botanical-leaf.is-active {
+  opacity: var(--leaf-opacity);
+  transform: translate3d(0, 0, 0) rotate(var(--tilt)) scale(1);
+}
+
+.botanical-leaf--right { --entry-x: 54px; }
+.botanical-leaf__parallax {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  transition: transform .24s linear;
+  will-change: transform;
+}
+.botanical-leaf__motion {
+  transform-origin: 50% 92%;
+  animation: botanical-sway var(--sway-duration) ease-in-out infinite alternate;
+}
+.botanical-leaf:nth-child(even) .botanical-leaf__motion {
+  animation-name: botanical-sway-reverse;
+}
+.botanical-leaf svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 18px 24px rgba(4, 24, 13, .16));
+  animation: botanical-breathe 9s ease-in-out infinite alternate;
+}
+.botanical-leaf .monstera-vein {
+  fill: none;
+  stroke: rgba(224, 246, 210, .45);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+}
+.botanical-leaf .monstera-stem {
+  fill: none;
+  stroke: #1a5638;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+.botanical-leaf--pale { --leaf-opacity: .18; }
+.botanical-leaf--pale svg {filter:drop-shadow(0 16px 22px rgba(18,52,30,.12)) saturate(.82) brightness(1.16)}
+.botanical-leaf--deep { --leaf-opacity: .27; }
+.botanical-leaf--deep svg {filter:drop-shadow(0 20px 28px rgba(2,24,11,.2)) saturate(1.08)}
+
+.botanical-leaf--1 {left:-74px;top:9vh;--leaf-size:clamp(190px,16vw,278px);--tilt:-17deg;--sway-duration:8.6s}
+.botanical-leaf--2 {right:-82px;top:25vh;--leaf-size:clamp(175px,14vw,244px);--tilt:19deg;--sway-duration:7.4s}
+.botanical-leaf--3 {left:-88px;top:48vh;--leaf-size:clamp(155px,13vw,225px);--tilt:12deg;--sway-duration:9.2s}
+.botanical-leaf--4 {right:-92px;top:66vh;--leaf-size:clamp(205px,18vw,310px);--tilt:-20deg;--sway-duration:10s}
+.botanical-leaf--5 {left:-58px;top:78vh;--leaf-size:clamp(145px,11vw,200px);--tilt:-7deg;--sway-duration:7.8s}
+.botanical-leaf--6 {right:-54px;top:5vh;--leaf-size:clamp(125px,10vw,180px);--tilt:9deg;--sway-duration:8.9s}
+
+@keyframes botanical-sway {
+  0% {transform:rotate(-3deg) translate3d(-2px,2px,0)}
+  48% {transform:rotate(1.3deg) translate3d(3px,-3px,0)}
+  100% {transform:rotate(4deg) translate3d(5px,1px,0)}
+}
+@keyframes botanical-sway-reverse {
+  0% {transform:rotate(3.4deg) translate3d(3px,-2px,0)}
+  52% {transform:rotate(-1deg) translate3d(-2px,3px,0)}
+  100% {transform:rotate(-4deg) translate3d(-5px,0,0)}
+}
+@keyframes botanical-breathe {
+  0% {transform:scale(.985) translateY(2px)}
+  100% {transform:scale(1.015) translateY(-2px)}
+}
+
+@media (max-width: 1100px) {
+  .botanical-leaf {--leaf-opacity:.16}
+  .botanical-leaf--deep {--leaf-opacity:.2}
+  .botanical-leaf--1 {left:-92px}
+  .botanical-leaf--2,.botanical-leaf--4 {right:-100px}
+}
+
+@media (max-width: 720px) {
+  .botanical-leaf--2,.botanical-leaf--3,.botanical-leaf--5,.botanical-leaf--6 {display:none}
+  .botanical-leaf--1 {left:-80px;top:12vh;--leaf-size:165px;--leaf-opacity:.14}
+  .botanical-leaf--4 {right:-86px;top:69vh;--leaf-size:185px;--leaf-opacity:.15}
+  .botanical-leaf svg {filter:drop-shadow(0 12px 18px rgba(4,24,13,.12))}
+}
+
+/* The project intentionally keeps the requested botanical movement active. */
+@media (prefers-reduced-motion: reduce) {
+  .botanical-leaf {
+    transition-duration:1.15s,1.45s!important;
+  }
+  .botanical-leaf__parallax {transition-duration:.24s!important}
+  .botanical-leaf__motion {animation-duration:var(--sway-duration)!important}
+  .botanical-leaf svg {animation-duration:9s!important}
+}
+
+@media print {
+  .botanical-edges {display:none!important}
+}

@@ -1,0 +1,138 @@
+/*
+  Planta Tattoo — cinematic background video treatment.
+  The original minimalistic layout, seven-page structure and reveal animations remain intact.
+  Video is a single viewport-sized fixed layer behind the page. Light surfaces are translucent,
+  so the moving imagery is visible throughout without sacrificing text legibility.
+*/
+html { background: #101713; }
+body { background: #101713; }
+.ambient-video {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #18251c url('tattoo-background-poster.webp') center / cover no-repeat;
+}
+.ambient-video video {
+  position: absolute;
+  width: 100%; height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.82) contrast(1.06);
+}
+.ambient-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(7,18,12,.66),rgba(8,20,14,.42) 50%,rgba(7,15,10,.68));
+}
+#app {position: relative; z-index: 1; isolation: isolate;}
+/* Video playback control (independent of the translated page render) */
+.video-toggle {
+  position: fixed; z-index: 110;
+  right: 18px; bottom: 18px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 43px; padding: 10px 15px;
+  background: rgba(13,22,17,.88); color: #eef6e9;
+  border: 1px solid rgba(182,222,144,.55); border-radius: 999px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.25);
+  cursor: pointer;
+  font: 700 11px/1.3 var(--body); letter-spacing: .025em;
+  transition: background .22s, border-color .22s, transform .22s;
+}
+.video-toggle:hover {background: #223f2b; border-color: #a0d66f; transform: translateY(-2px);}
+.video-toggle:active {transform: scale(.97);}
+.video-toggle:focus-visible {outline-color:#c0ef98;}
+.video-toggle-icon {color: #b2e17c; font-size: 13px; line-height: 1; min-width: 14px; text-align: center;}
+body.modal-open ~ .video-toggle, body:has(.lightbox.open) > .video-toggle {display: none;}
+
+/* Dark translucent navigation, always legible over moving imagery */
+.site-header { background: rgba(13,20,15,.91); border-bottom-color: rgba(186,221,174,.2); box-shadow: 0 14px 30px rgba(0,0,0,.13); }
+.site-header .brand {color:#f6fbf1;}
+.site-header .circle-mark {color:#b6df8d; border-color:#688f5d;}
+.site-header .nav-list a {color:#c9d7c7;}
+.site-header .nav-list a:hover, .site-header .nav-list a[aria-current=page] {color:#fff;}
+.site-header .nav-list a::after {background:#a4d66f;}
+.site-header .langs {background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.13);}
+.site-header .langs button {color:#e0e9db;}
+.site-header .langs button.active, .site-header .langs button[aria-pressed=true] {background:#a4d66f;color:#102014;}
+.site-header .button-primary {background:#a4d66f;border-color:#a4d66f;color:#112016;}
+.site-header .button-primary:hover {background:white;border-color:white;color:#111513;}
+.site-header .menu-toggle {background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);color:white;}
+.site-header .mobile-panel {background:rgba(15,26,18,.98);border-color:rgba(255,255,255,.2);}
+.site-header .mobile-links a {color:#f0f7ec;border-color:rgba(255,255,255,.14);}
+.site-header .mobile-links a[aria-current=page] {color:#b5e68f;}
+
+/* The opening hero is an unobstructed cinematic view, but preserves the approved composition. */
+.hero {padding-top: 24px; padding-bottom: 46px; background: transparent;}
+.hero-frame {
+  background: radial-gradient(circle at 78% 9%,rgba(86,146,59,.18),transparent 30%),
+              linear-gradient(100deg,rgba(9,21,13,.52),rgba(8,18,13,.16) 65%,rgba(9,20,12,.42));
+  border-color: rgba(179,223,144,.4);
+  box-shadow: 0 30px 100px rgba(0,0,0,.20);
+}
+.hero-frame::after {border-color:rgba(224,244,205,.18);}
+.hero .hero-ornament {border-color:rgba(182,223,145,.45);box-shadow:0 0 0 50px rgba(165,224,111,.035),0 0 0 100px rgba(165,224,111,.025);}
+.hero .hero-leaf {color:#b8e494;opacity:.42;}
+.hero .hero-side, .hero .hero-count, .hero .hero-scroll {color:#d6e7cd;}
+.hero .hero-tag {color:#eaf3e7; background:rgba(14,26,18,.68);border-color:rgba(178,225,144,.50); box-shadow:0 8px 25px rgba(0,0,0,.12);}
+.hero .hero-tag::before {background:#b3e781;}
+.hero h1 {color:#f9fcf5;text-shadow:0 5px 38px rgba(0,0,0,.28);}
+.hero h1 em {color:#a8d878;}
+.hero .hero-summary {color:#edf3e9;text-shadow:0 2px 12px rgba(0,0,0,.27);}
+.hero .button-primary {background:#a8d878;border-color:#a8d878;color:#0e1d12;}
+.hero .button-primary:hover {background:white;border-color:white;color:#0e1d12;}
+.hero .button:not(.button-primary) {color:#fff;border-color:rgba(243,250,238,.83); background:rgba(10,20,14,.26);}
+.hero .button:not(.button-primary):hover {background:rgba(235,247,225,.16);}
+.ribbon {background:rgba(11,25,16,.88);border-color:rgba(179,222,155,.24);color:#f2f8ef;}
+.ribbon i {color:#acdf7a;}
+
+/* Every section transmits part of the video underneath it. */
+.section {background:rgba(248,250,246,.86);}
+.section.section-soft {background:rgba(226,239,219,.88);}
+.section.section-white {background:rgba(255,254,250,.89);}
+.section + .section {border-top:1px solid rgba(37,60,37,.12);}
+.feature-card, .specialty-card, .review-card, .artist-card, .mini-value {
+  background:rgba(255,255,252,.95);box-shadow:0 12px 40px rgba(13,31,16,.07);
+}
+.photo-shell {box-shadow:0 16px 44px rgba(12,30,14,.15);}
+.truth-panel {background:rgba(239,247,235,.93);}
+.contact-card {background:rgba(225,239,217,.95);}
+.instagram-spot {background:linear-gradient(140deg,rgba(185,220,160,.96),rgba(211,236,191,.94));}
+.cta-band {background:rgba(11,22,15,.76); border-top:1px solid rgba(193,230,168,.23);border-bottom:1px solid rgba(193,230,168,.18);}
+.cta-band .button-white {color:#132017;}
+
+/* Subpage hero banners also open to the video, rather than blocking it. */
+.page-banner {
+  background:linear-gradient(92deg,rgba(11,23,15,.55),rgba(15,33,21,.18) 70%,rgba(9,22,13,.38));
+  border-bottom:1px solid rgba(185,221,155,.25);
+  min-height:360px;display:flex;align-items:center;
+}
+.page-banner .display {color:#f8fcf5;text-shadow:0 8px 30px rgba(0,0,0,.22);}
+.page-banner .intro {color:#e4efe0;}
+.page-banner .eyebrow {color:#bbeb90;}
+.page-banner .eyebrow::before {background:#b3e681;}
+.page-banner::after {color:rgba(170,219,130,.13);}
+
+/* Footer mirrors the darker sections; moving video remains subtly apparent. */
+.footer {background:rgba(11,17,13,.91); border-top:1px solid rgba(194,222,175,.2);}
+.footer .brand {color:#f7fbf3;}
+.footer .circle-mark {color:#a9db78;border-color:#6a9c58;}
+
+@media(max-width:1100px) {
+ .site-header .mobile-panel {background:rgba(15,26,18,.98);}
+}
+@media(max-width:540px) {
+ .video-toggle {right:12px;bottom:12px;min-height:43px;padding:10px 13px;}
+ .hero-frame {background:linear-gradient(135deg,rgba(10,22,14,.62),rgba(11,24,16,.29));}
+ .hero .hero-summary {color:#f1f7ed;}
+ .page-banner {min-height:285px;}
+ .section {background:rgba(248,250,246,.89);}
+ .section.section-soft {background:rgba(227,239,220,.9);}
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-toggle {transition:none;}
+}
