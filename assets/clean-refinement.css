@@ -90,6 +90,8 @@
 .about-sample {gap:min(8vw,100px)}
 .about-sample-copy p {line-height:1.8}
 .feature-art {height:auto;aspect-ratio:1/1;border-radius:8px;box-shadow:none;outline-color:#e2e9dc}
+.feature-art-media {position:absolute;inset:0;overflow:hidden;border-radius:8px}
+.feature-art img,.story-feature img {border-radius:8px}
 .feature-art::after {width:67px;height:67px;font-size:27px;background:#acd975}
 .feature-card,.specialty-card,.artist-card,.review-card,.mini-value {
   background:#fffefa;

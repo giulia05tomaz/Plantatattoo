@@ -142,7 +142,16 @@ function initBackdrop(){
 }
 const renderers={home,about,specialties,artists,portfolio,reviews,contact};
 function render(){t=D[lang];document.documentElement.lang=lang;document.title=`${name(page)} | Planta Tattoo Studio`;const meta=document.querySelector('meta[name="description"]');if(meta){const summary=t[page]?.subtitle||t.home.subtitle;meta.setAttribute('content',`${summary} Planta Tattoo Studio, Costa Adeje, Tenerife.`)}const ogTitle=document.querySelector('meta[property="og:title"]');if(ogTitle)ogTitle.content=document.title;const ogDescription=document.querySelector('meta[property="og:description"]');if(ogDescription)ogDescription.content=meta?.content||'';const skip=document.querySelector('body > .skip-link');if(skip)skip.remove();document.getElementById('app').innerHTML=`${header()}<main id="main" tabindex="-1">${renderers[page]()}</main>${footer()}${lightbox()}${certificateModal()}`;setupPhotos();setupReveals();syncGalleryCount();syncVideoToggle()}
-function setupPhotos(){document.querySelectorAll('img[data-remote-image]').forEach(img=>{const fail=()=>{img.dataset.broken='true'};img.addEventListener('error',fail,{once:true});if(img.complete&&img.naturalWidth===0)fail()})}
+function setupPhotos(){
+  const featureArt=document.querySelector('.feature-art');
+  if(featureArt&&!featureArt.querySelector('.feature-art-media')){
+    const media=document.createElement('div');
+    media.className='feature-art-media';
+    [...featureArt.children].filter(el=>el.matches('.image-fallback,img')).forEach(el=>media.appendChild(el));
+    featureArt.prepend(media);
+  }
+  document.querySelectorAll('img[data-remote-image]').forEach(img=>{const fail=()=>{img.dataset.broken='true'};img.addEventListener('error',fail,{once:true});if(img.complete&&img.naturalWidth===0)fail()})
+}
 function decorateReveals(){
   const mark=(selector,type='up')=>document.querySelectorAll(selector).forEach(el=>{el.classList.add('reveal');if(type!=='up')el.classList.add(`reveal-${type}`)});
   mark('.hero-core > *,.page-banner .wrap > *,.section-header .eyebrow,.section-header .section-title,.section-header > p,.section-header .slider-controls,.about-sample-copy > *,.gallery-bar > *,.contact-layout > *,.cta-content > *');
