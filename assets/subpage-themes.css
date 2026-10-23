@@ -85,9 +85,11 @@ body[data-page="about"] main>.section.section-soft {background:#dce7d3}
 body[data-page="about"] .split {grid-template-columns:1.22fr .78fr;align-items:start}
 body[data-page="about"] .split>div:first-child {padding:45px 0 20px}
 body[data-page="about"] .story-feature {
-  min-height:540px;
+  height:auto;
+  min-height:0;
+  aspect-ratio:1/1;
   border:0;
-  border-radius:240px 240px 24px 24px;
+  border-radius:8px;
   background:linear-gradient(165deg,#9fbd90,#3e714d);
   box-shadow:22px 24px 0 #d8c9b4;
 }
@@ -345,7 +347,7 @@ body[data-page="contact"] .cta-band .intro {color:#46584b}
   body[data-page="reviews"] .page-banner::before {font-size:360px;right:-8%}
   body[data-page="contact"] .page-banner::after {font-size:110px;right:8%;top:13%}
   body[data-page="about"] .split {grid-template-columns:1fr}
-  body[data-page="about"] .story-feature {min-height:390px;box-shadow:12px 14px 0 #d8c9b4}
+  body[data-page="about"] .story-feature {min-height:0;box-shadow:12px 14px 0 #d8c9b4}
   body[data-page="about"] .values-grid {grid-template-columns:1fr}
   body[data-page="about"] .mini-value {border-right:0;border-bottom:1px solid #9daf95}
   body[data-page="specialties"] .specialty-grid {grid-template-columns:1fr}

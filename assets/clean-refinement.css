@@ -89,7 +89,7 @@
 .intro {line-height:1.72}
 .about-sample {gap:min(8vw,100px)}
 .about-sample-copy p {line-height:1.8}
-.feature-art {height:485px;border-radius:210px 210px 18px 18px;box-shadow:none;outline-color:#e2e9dc}
+.feature-art {height:auto;aspect-ratio:1/1;border-radius:8px;box-shadow:none;outline-color:#e2e9dc}
 .feature-art::after {width:67px;height:67px;font-size:27px;background:#acd975}
 .feature-card,.specialty-card,.artist-card,.review-card,.mini-value {
   background:#fffefa;
@@ -173,7 +173,7 @@
 @media(max-width:820px) {
   .hero-frame {min-height:585px;padding:88px 24px}
   .hero h1 {font-size:clamp(58px,10vw,86px)}
-  .feature-art {height:410px}
+  .feature-art {height:auto}
   .section {padding:72px 0}
   .insta-symbol {opacity:.23}
   .page-banner {min-height:0}
@@ -191,7 +191,7 @@
   .section-title {font-size:clamp(40px,11.5vw,58px)}
   .feature-card {min-height:0}
   .portfolio-preview .photo-shell:nth-child(2) {margin-top:12px}
-  .feature-art {height:370px}
+  .feature-art {height:auto}
   .instagram-spot {padding:30px 25px}
   .instagram-spot .display {font-size:clamp(38px,10vw,52px)}
   .page-banner {padding:66px 0 56px}
